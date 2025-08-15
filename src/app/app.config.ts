@@ -4,16 +4,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideHttpClient } from '@angular/common/http';
 import { providePrimeNG } from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { SpeechDataService } from './services/speech-data.service';
-
 import { routes } from './app.routes';
 
 // App initializer function
-function initializeApp(speechDataService: SpeechDataService) {
-  return (): Promise<void> => {
-    return speechDataService.initLocalStorage();
-  };
-}
+// function initializeApp(speechDataService: SpeechDataService) {
+//   return (): Promise<void> => {
+//     return speechDataService.initLocalStorage();
+//   };
+// }
 
 export const appConfig: ApplicationConfig = {
   providers: [
