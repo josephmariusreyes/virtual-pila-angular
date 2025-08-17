@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+
+// PrimeNG modules used by the login component
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { ButtonModule } from 'primeng/button';
 
 import { LoginComponent } from './container/login/login.component';
 import { RegisterComponent } from './container/register/register.component';
+import { UsersRoutingModule } from './users.routing';
 
 @NgModule({
   declarations: [
@@ -11,8 +18,13 @@ import { RegisterComponent } from './container/register/register.component';
     RegisterComponent
   ],
   imports: [
+    UsersRoutingModule,
     CommonModule,
-    RouterModule
+  RouterModule,
+  ReactiveFormsModule,
+  InputTextModule,
+  PasswordModule,
+  ButtonModule
   ]
 })
 export class UsersModule { }
