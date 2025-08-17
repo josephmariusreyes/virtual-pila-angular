@@ -1,1 +1,12 @@
-/* Login component styles */
+/* Keep styles minimal — rely on Bootstrap & PrimeNG */
+:host {
+	display: block;
+}
+
+.card {
+	border-radius: 0.5rem;
+}
+
+.card-title {
+	font-weight: 600;
+}
