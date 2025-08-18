@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 // PrimeNG modules used by the login component
 import { InputTextModule } from 'primeng/inputtext';
@@ -20,11 +20,12 @@ import { UsersRoutingModule } from './users.routing';
   imports: [
     UsersRoutingModule,
     CommonModule,
-  RouterModule,
-  ReactiveFormsModule,
-  InputTextModule,
-  PasswordModule,
-  ButtonModule
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+    InputTextModule,
+    PasswordModule,
+    ButtonModule
   ]
 })
 export class UsersModule { }
