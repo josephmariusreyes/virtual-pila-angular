@@ -8,4 +8,16 @@ import { Component } from '@angular/core';
 })
 export class CustomerQuelistComponent {
 
+  completeService(): void {
+    alert('Complete Service functionality will be implemented here');
+  }
+
+  editCustomer(customerId: number): void {
+    alert(`Edit Customer ${customerId} functionality will be implemented here`);
+  }
+
+  removeCustomer(customerId: number): void {
+    alert(`Remove Customer ${customerId} functionality will be implemented here`);
+  }
+
 }

@@ -9,7 +9,7 @@ export const routes: Routes = [
     loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule)
   },
   {
-    path: 'customer-line',
+    path: 'customer-que',
     loadChildren: () => import('./features/customer-quelist/customer-quelist.module').then(m => m.CustomerQuelistModule)
   },
 ];

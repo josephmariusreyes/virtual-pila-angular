@@ -1,0 +1,71 @@
+@import 'variables';
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.register-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+    // headings
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: $text-color;
+        font-size: $heading-font-size;
+        font-weight: $base-font-weight;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: $muted-color;
+            font-size: $base-font-size;
+            font-weight: $base-font-weight;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid $input-border;
+            border-radius: 4px;
+            font-size: $base-font-size;
+            font-weight: 400;
+
+            &:focus {
+                outline: none;
+                border-color: $button-bg;
+                box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            }
+        }
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: $button-bg;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: $base-font-size;
+        font-weight: $base-font-weight;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: $button-bg-hover;
+        }
+    }
+}

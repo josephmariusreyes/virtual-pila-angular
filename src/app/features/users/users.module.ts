@@ -9,13 +9,17 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 
 import { LoginComponent } from './container/login/login.component';
-import { RegisterComponent } from './container/register/register.component';
+//import { RegisterComponent } from './container/register/register.component';
 import { UsersRoutingModule } from './users.routing';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent
+    //@notes
+    //will add the register component later on to
+    //add new company
+    //add new users that can input customers to que
+    //RegisterComponent
   ],
   imports: [
     UsersRoutingModule,
