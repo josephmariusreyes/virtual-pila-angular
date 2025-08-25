@@ -1,7 +1,7 @@
 
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { CustomerQuelistComponent } from "./container/customer-quelist/customer-quelist/customer-quelist.component";
+import { CustomerQuelistComponent } from "./container/customer-quelist/customer-quelist.component";
 
 
 export const routes: Routes = [
