@@ -1,3 +1,5 @@
+@import 'variables';
+
 /* Keep styles minimal — rely on Bootstrap & PrimeNG */
 :host {
 	display: block;
@@ -8,5 +10,30 @@
 }
 
 .card-title {
+		font-weight: 600;
+}
+
+// Apply consistent typography to the card contents
+.card, .card * {
+	font-size: $base-font-size;
+}
+
+.card-title {
+	font-size: $heading-font-size;
+	font-weight: $base-font-weight;
+}
+
+// Style form labels
+.form-label {
 	font-weight: 600;
+}
+
+// Style primary button inside login card to match register's button
+.card .btn, .card button, .card [pbutton], .card [pButton] {
+	background-color: $button-bg;
+	color: #fff;
+	font-weight: $base-font-weight;
+}
+.card .btn:hover, .card button:hover, .card [pbutton]:hover, .card [pButton]:hover {
+	background-color: $button-bg-hover;
 }
