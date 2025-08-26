@@ -1,0 +1,26 @@
+[
+	{
+		"ID": "b1a7e8c2-1f2d-4e3a-9c1a-1a2b3c4d5e6f",
+		"UrlAlias": "lto",
+		"Name": "Land Transportation Office",
+		"Description": "front line government agency showcasing fast and efficient public service for a progressive land transport sector",
+		"ContactNumber": "09679984042",
+		"Email": "lto@email.com"
+	},
+	{
+		"ID": "c2b8f9d3-2e3f-5a4b-8d2b-2b3c4d5e6f7a",
+		"UrlAlias": "psa",
+		"Name": "Philippines Statistic Authority",
+		"Description": "The Philippine Statistics Authority is the central statistical authority of the Philippine government that collects, compiles, analyzes, and publishes statistical information on economic, social",
+		"ContactNumber": "09679984042",
+		"Email": "psa@email.com"
+	},
+	{
+		"ID": "d3c9g0e4-3f4g-6b5c-9e3c-3c4d5e6f7a8b",
+		"UrlAlias": "sss",
+		"Name": "Social Security Service",
+		"Description": "The Social Security System (SSS; Filipino: Paseguruhan ng mga Naglilingkod sa Pribado[4]) is a state-run social insurance program in the Philippines to workers in the private, professional and informal sectors",
+		"ContactNumber": "09679984042",
+		"Email": "sss@email.com"
+	}
+]
