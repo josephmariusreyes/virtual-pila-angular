@@ -5,7 +5,14 @@
 		"Name": "Land Transportation Office",
 		"Description": "front line government agency showcasing fast and efficient public service for a progressive land transport sector",
 		"ContactNumber": "09679984042",
-		"Email": "lto@email.com"
+		"Email": "lto@email.com",
+		"TransactionType": [
+			"License Renewal",
+			"Student Permit",
+			"Vehicle Registration",
+			"Change of Ownership",
+			"Plate Number Replacement"
+		]
 	},
 	{
 		"ID": "c2b8f9d3-2e3f-5a4b-8d2b-2b3c4d5e6f7a",
@@ -13,7 +20,14 @@
 		"Name": "Philippines Statistic Authority",
 		"Description": "The Philippine Statistics Authority is the central statistical authority of the Philippine government that collects, compiles, analyzes, and publishes statistical information on economic, social",
 		"ContactNumber": "09679984042",
-		"Email": "psa@email.com"
+		"Email": "psa@email.com",
+		"TransactionType": [
+			"Birth Certificate",
+			"Marriage Certificate",
+			"CENOMAR",
+			"Death Certificate",
+			"Correction of Entries"
+		]
 	},
 	{
 		"ID": "d3c9g0e4-3f4g-6b5c-9e3c-3c4d5e6f7a8b",
@@ -21,6 +35,13 @@
 		"Name": "Social Security Service",
 		"Description": "The Social Security System (SSS; Filipino: Paseguruhan ng mga Naglilingkod sa Pribado[4]) is a state-run social insurance program in the Philippines to workers in the private, professional and informal sectors",
 		"ContactNumber": "09679984042",
-		"Email": "sss@email.com"
+		"Email": "sss@email.com",
+		"TransactionType": [
+			"SSS Loan",
+			"SSS Contribution",
+			"SSS ID Replacement",
+			"Salary Loan",
+			"Pension Application"
+		]
 	}
 ]
