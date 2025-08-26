@@ -1,0 +1,82 @@
+[
+	{
+		"ID": "a1b2c3d4-1111-2222-3333-444455556666",
+		"CompanyID": "b1a7e8c2-1f2d-4e3a-9c1a-1a2b3c4d5e6f",
+		"FullName": "Juan Dela Cruz",
+		"ContactNumber": "09171234567",
+		"TypeOfTransaction": "License Renewal",
+		"CustomerStatus": "Waiting"
+	},
+	{
+		"ID": "a1b2c3d4-2222-3333-4444-555566667777",
+		"CompanyID": "c2b8f9d3-2e3f-5a4b-8d2b-2b3c4d5e6f7a",
+		"FullName": "Maria Santos",
+		"ContactNumber": "09181234567",
+		"TypeOfTransaction": "Birth Certificate",
+		"CustomerStatus": "Processing"
+	},
+	{
+		"ID": "a1b2c3d4-3333-4444-5555-666677778888",
+		"CompanyID": "d3c9g0e4-3f4g-6b5c-9e3c-3c4d5e6f7a8b",
+		"FullName": "Pedro Reyes",
+		"ContactNumber": "09191234567",
+		"TypeOfTransaction": "SSS Loan",
+		"CustomerStatus": "Waiting"
+	},
+	{
+		"ID": "a1b2c3d4-4444-5555-6666-777788889999",
+		"CompanyID": "b1a7e8c2-1f2d-4e3a-9c1a-1a2b3c4d5e6f",
+		"FullName": "Ana Cruz",
+		"ContactNumber": "09201234567",
+		"TypeOfTransaction": "Student Permit",
+		"CustomerStatus": "Completed"
+	},
+	{
+		"ID": "a1b2c3d4-5555-6666-7777-888899990000",
+		"CompanyID": "c2b8f9d3-2e3f-5a4b-8d2b-2b3c4d5e6f7a",
+		"FullName": "Josefa Lim",
+		"ContactNumber": "09211234567",
+		"TypeOfTransaction": "Marriage Certificate",
+		"CustomerStatus": "Waiting"
+	},
+	{
+		"ID": "a1b2c3d4-6666-7777-8888-999900001111",
+		"CompanyID": "d3c9g0e4-3f4g-6b5c-9e3c-3c4d5e6f7a8b",
+		"FullName": "Carlos Tan",
+		"ContactNumber": "09221234567",
+		"TypeOfTransaction": "SSS Contribution",
+		"CustomerStatus": "Processing"
+	},
+	{
+		"ID": "a1b2c3d4-7777-8888-9999-000011112222",
+		"CompanyID": "b1a7e8c2-1f2d-4e3a-9c1a-1a2b3c4d5e6f",
+		"FullName": "Liza Gomez",
+		"ContactNumber": "09231234567",
+		"TypeOfTransaction": "Vehicle Registration",
+		"CustomerStatus": "Waiting"
+	},
+	{
+		"ID": "a1b2c3d4-8888-9999-0000-111122223333",
+		"CompanyID": "c2b8f9d3-2e3f-5a4b-8d2b-2b3c4d5e6f7a",
+		"FullName": "Mark dela Rosa",
+		"ContactNumber": "09241234567",
+		"TypeOfTransaction": "CENOMAR",
+		"CustomerStatus": "Completed"
+	},
+	{
+		"ID": "a1b2c3d4-9999-0000-1111-222233334444",
+		"CompanyID": "d3c9g0e4-3f4g-6b5c-9e3c-3c4d5e6f7a8b",
+		"FullName": "Ramon Bautista",
+		"ContactNumber": "09251234567",
+		"TypeOfTransaction": "SSS ID Replacement",
+		"CustomerStatus": "Waiting"
+	},
+	{
+		"ID": "a1b2c3d4-0000-1111-2222-333344445555",
+		"CompanyID": "b1a7e8c2-1f2d-4e3a-9c1a-1a2b3c4d5e6f",
+		"FullName": "Grace Villanueva",
+		"ContactNumber": "09261234567",
+		"TypeOfTransaction": "Change of Ownership",
+		"CustomerStatus": "Processing"
+	}
+]
