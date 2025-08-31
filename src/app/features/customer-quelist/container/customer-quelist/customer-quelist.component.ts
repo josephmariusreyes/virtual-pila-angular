@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-customer-quelist',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   standalone:false
 })
 export class CustomerQuelistComponent {
+  
+  companyName$ = signal<string | null>(null);
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    this.companyName$.set(this.route.snapshot.paramMap.get('companyName'));
+  }
 
   completeService(): void {
     alert('Complete Service functionality will be implemented here');
