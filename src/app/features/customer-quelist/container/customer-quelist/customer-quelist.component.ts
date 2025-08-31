@@ -21,6 +21,7 @@ interface Company {
 export class CustomerQuelistComponent {
   companyName$ = signal<string | null>(null);
   companies: Company[] = [];
+  searchPhoneNumber: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -53,5 +54,12 @@ export class CustomerQuelistComponent {
 
   removeCustomer(customerId: number): void {
     alert(`Remove Customer ${customerId} functionality will be implemented here`);
+  }
+
+  searchByPhone(): void {
+    if (this.searchPhoneNumber && this.searchPhoneNumber.length >= 10) {
+      alert(`Searching for customer with phone number: ${this.searchPhoneNumber}`);
+      // TODO: Implement actual phone number search functionality
+    }
   }
 }

@@ -6,16 +6,53 @@
 }
 
 <ng-template #noCompany>
-  <div class="alert alert-info text-center my-5">
-    <h4>No company selected</h4>
-    <p>Please select a company to view the queue list.</p>
-    <div class="mt-4">
-      <select class="form-select w-auto mx-auto" (change)="onCompanySelect($event)">
-        <option value="">-- Select Company --</option>
-        <option *ngFor="let company of companies" [value]="company.UrlAlias">
-          {{ company.Name }}
-        </option>
-      </select>
+  <div class="selection-container">
+    <div class="card shadow-sm">
+      <div class="card-body p-5">
+        <div class="text-center mb-4">
+          <h4 class="mb-3">Virtual Queue System</h4>
+          <p class="text-muted">Select a company to view the queue list or search by phone number</p>
+        </div>
+        
+        <!-- Company Selection -->
+        <div class="mb-4">
+          <label for="companySelect" class="form-label fw-medium">Select Company</label>
+          <select id="companySelect" class="form-select" (change)="onCompanySelect($event)">
+            <option value="">-- Select Company --</option>
+            <option *ngFor="let company of companies" [value]="company.UrlAlias">
+              {{ company.Name }}
+            </option>
+          </select>
+        </div>
+
+        <div class="divider-text text-center my-4">
+          <span class="text-muted">OR</span>
+        </div>
+
+        <!-- Phone Number Search -->
+        <div class="mb-4">
+          <label for="phoneSearch" class="form-label fw-medium">Search by Phone Number</label>
+          <div class="input-group">
+            <input 
+              type="tel" 
+              id="phoneSearch"
+              class="form-control" 
+              placeholder="Enter phone number (e.g., 09679984042)"
+              [(ngModel)]="searchPhoneNumber"
+              maxlength="11">
+            <button 
+              class="btn btn-primary" 
+              type="button" 
+              (click)="searchByPhone()"
+              [disabled]="!searchPhoneNumber || searchPhoneNumber.length < 10">
+              <i class="pi pi-search me-1"></i>Search
+            </button>
+          </div>
+          <div class="form-text text-muted">
+            Enter a valid phone number to find your queue position
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </ng-template>
