@@ -9,6 +9,14 @@
   <div class="alert alert-info text-center my-5">
     <h4>No company selected</h4>
     <p>Please select a company to view the queue list.</p>
+    <div class="mt-4">
+      <select class="form-select w-auto mx-auto" (change)="onCompanySelect($event)">
+        <option value="">-- Select Company --</option>
+        <option *ngFor="let company of companies" [value]="company.UrlAlias">
+          {{ company.Name }}
+        </option>
+      </select>
+    </div>
   </div>
 </ng-template>
 
