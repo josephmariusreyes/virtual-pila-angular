@@ -52,8 +52,8 @@ export class CustomerQuelistComponent {
     alert(`Edit Customer ${customerId} functionality will be implemented here`);
   }
 
-  removeCustomer(customerId: number): void {
-    alert(`Remove Customer ${customerId} functionality will be implemented here`);
+  removeFromQue(customerId: number): void {
+    alert(`Remove Customer ${customerId} from queue functionality will be implemented here`);
   }
 
   searchByPhone(): void {
