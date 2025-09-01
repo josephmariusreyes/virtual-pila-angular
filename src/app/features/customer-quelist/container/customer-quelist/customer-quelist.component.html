@@ -88,9 +88,11 @@
                 </div>
                 <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">03</span>
               </div>
-              <div class="text-center mt-4">
-                <button class="btn btn-success btn-lg px-4 w-100 w-sm-auto" (click)="completeService()">
-                  <i class="pi pi-check me-2"></i>Completed
+              <div class="d-flex justify-content-end flex-wrap gap-2 mt-4">
+                <button class="btn btn-success btn-sm" (click)="completeService()">
+                  <i class="pi pi-check me-1"></i>
+                  <span class="d-none d-sm-inline">Completed</span>
+                  <span class="d-sm-none">Done</span>
                 </button>
               </div>
             </div>
