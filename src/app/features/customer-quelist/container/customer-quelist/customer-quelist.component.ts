@@ -48,7 +48,7 @@ export class CustomerQuelistComponent {
     alert('Complete Service functionality will be implemented here');
   }
 
-  editCustomer(customerId: number): void {
+  startTransaction(customerId: number): void {
     alert(`Edit Customer ${customerId} functionality will be implemented here`);
   }
 
