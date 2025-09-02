@@ -78,24 +78,32 @@
             <h3 class="card-title mb-0 fw-bold">Serving</h3>
           </div>
           <div class="card-body p-4">
-            <!-- Currently Serving Customer -->
-            <div class="mb-4">
-              <div class="d-flex justify-content-between align-items-start mb-3">
-                <div class="flex-grow-1">
-                  <h6 class="mb-1">Name: Lorem Portwale</h6>
-                  <small class="text-muted d-block">Contact Number: 9960-369-9987</small>
-                  <small class="text-muted d-block">Service Type: Hair cut</small>
+            <!-- Currently Serving Customers -->
+            @if (servingCustomers.length > 0) {
+              @for (customer of servingCustomers; track customer.ID; let index = $index) {
+                <div class="mb-4">
+                  <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div class="flex-grow-1">
+                      <h6 class="mb-1">Name: {{ customer.FullName }}</h6>
+                      <small class="text-muted d-block">Contact Number: {{ customer.ContactNumber }}</small>
+                      <small class="text-muted d-block">Service Type: {{ customer.TypeOfTransaction }}</small>
+                    </div>
+                    <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">{{ index + 1 | number:'2.0' }}</span>
+                  </div>
+                  <div class="d-flex justify-content-end flex-wrap gap-2 mt-4">
+                    <button class="btn btn-success btn-sm" (click)="completeService()">
+                      <i class="pi pi-check me-1"></i>
+                      <span class="d-none d-sm-inline">Completed</span>
+                      <span class="d-sm-none">Done</span>
+                    </button>
+                  </div>
                 </div>
-                <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">03</span>
+              }
+            } @else {
+              <div class="text-center py-4">
+                <p class="text-muted">No customers currently being served</p>
               </div>
-              <div class="d-flex justify-content-end flex-wrap gap-2 mt-4">
-                <button class="btn btn-success btn-sm" (click)="completeService()">
-                  <i class="pi pi-check me-1"></i>
-                  <span class="d-none d-sm-inline">Completed</span>
-                  <span class="d-sm-none">Done</span>
-                </button>
-              </div>
-            </div>
+            }
           </div>
         </div>
       </div>
@@ -108,74 +116,36 @@
           </div>
           <div class="card-body p-4">
             <!-- Waiting Customers List -->
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-start mb-2 p-3 border rounded customer-item">
-                <div class="flex-grow-1">
-                  <h6 class="mb-1">Name: Ahmed Gayes</h6>
-                  <small class="text-muted d-block">Contact Number: 9960-369-9987</small>
-                  <small class="text-muted d-block">Service Type: Hair cut</small>
+            @if (waitingCustomers.length > 0) {
+              @for (customer of waitingCustomers; track customer.ID; let index = $index) {
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-start mb-2 p-3 border rounded customer-item">
+                    <div class="flex-grow-1">
+                      <h6 class="mb-1">Name: {{ customer.FullName }}</h6>
+                      <small class="text-muted d-block">Contact Number: {{ customer.ContactNumber }}</small>
+                      <small class="text-muted d-block">Service Type: {{ customer.TypeOfTransaction }}</small>
+                    </div>
+                    <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">{{ index + 1 | number:'2.0' }}</span>
+                  </div>
+                  <div class="d-flex justify-content-end flex-wrap gap-2">
+                    <button class="btn btn-warning btn-sm" (click)="startTransaction(customer.ID)">
+                      <i class="pi pi-pencil me-1"></i>
+                      <span class="d-none d-sm-inline">Start Transaction</span>
+                      <span class="d-sm-none">Start</span>
+                    </button>
+                    <button class="btn btn-danger btn-sm" (click)="removeFromQue(customer.ID)">
+                      <i class="pi pi-times me-1"></i>
+                      <span class="d-none d-sm-inline">Remove from Que</span>
+                      <span class="d-sm-none">Remove</span>
+                    </button>
+                  </div>
                 </div>
-                <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">02</span>
+              }
+            } @else {
+              <div class="text-center py-4">
+                <p class="text-muted">No customers waiting in queue</p>
               </div>
-              <div class="d-flex justify-content-end flex-wrap gap-2">
-                <button class="btn btn-warning btn-sm" (click)="startTransaction(1)">
-                  <i class="pi pi-pencil me-1"></i>
-                  <span class="d-none d-sm-inline">Start Transaction</span>
-                  <span class="d-sm-none">Edit</span>
-                </button>
-                <button class="btn btn-danger btn-sm" (click)="removeFromQue(1)">
-                  <i class="pi pi-times me-1"></i>
-                  <span class="d-none d-sm-inline">Remove from Que</span>
-                  <span class="d-sm-none">Remove</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-start mb-2 p-3 border rounded customer-item">
-                <div class="flex-grow-1">
-                  <h6 class="mb-1">Name: Maxwell Byers</h6>
-                  <small class="text-muted d-block">Contact Number: 9960-369-9987</small>
-                  <small class="text-muted d-block">Service Type: Hair cut</small>
-                </div>
-                <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">01</span>
-              </div>
-              <div class="d-flex justify-content-end flex-wrap gap-2">
-                <button class="btn btn-warning btn-sm" (click)="startTransaction(2)">
-                  <i class="pi pi-pencil me-1"></i>
-                  <span class="d-none d-sm-inline">Edit Transaction</span>
-                  <span class="d-sm-none">Edit</span>
-                </button>
-                <button class="btn btn-danger btn-sm" (click)="removeFromQue(2)">
-                  <i class="pi pi-times me-1"></i>
-                  <span class="d-none d-sm-inline">Remove from Que</span>
-                  <span class="d-sm-none">Remove</span>
-                </button>
-              </div>
-            </div>
-
-            <div class="mb-3">
-              <div class="d-flex justify-content-between align-items-start mb-2 p-3 border rounded customer-item">
-                <div class="flex-grow-1">
-                  <h6 class="mb-1">Name: Charles Samson</h6>
-                  <small class="text-muted d-block">Contact Number: 9960-369-9987</small>
-                  <small class="text-muted d-block">Service Type: Hair cut</small>
-                </div>
-                <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">00</span>
-              </div>
-              <div class="d-flex justify-content-end flex-wrap gap-2">
-                <button class="btn btn-warning btn-sm" (click)="startTransaction(3)">
-                  <i class="pi pi-pencil me-1"></i>
-                  <span class="d-none d-sm-inline">Edit Transaction</span>
-                  <span class="d-sm-none">Edit</span>
-                </button>
-                <button class="btn btn-danger btn-sm" (click)="removeFromQue(3)">
-                  <i class="pi pi-times me-1"></i>
-                  <span class="d-none d-sm-inline">Remove from Que</span>
-                  <span class="d-sm-none">Remove</span>
-                </button>
-              </div>
-            </div>
+            }
           </div>
         </div>
       </div>
