@@ -16,7 +16,7 @@
 			"FullName": "Maria Santos",
 			"ContactNumber": "09181234567",
 			"TypeOfTransaction": "Birth Certificate",
-			"CustomerStatus": "Processing",
+			"CustomerStatus": "Serving",
 			"TransactionType": [
 				"Birth Certificate"
 			]
@@ -61,7 +61,7 @@
 			"FullName": "Carlos Tan",
 			"ContactNumber": "09221234567",
 			"TypeOfTransaction": "SSS Contribution",
-			"CustomerStatus": "Processing",
+			"CustomerStatus": "Serving",
 			"TransactionType": [
 				"SSS Loan",
 				"Pension Application"
@@ -107,7 +107,7 @@
 			"FullName": "Grace Villanueva",
 			"ContactNumber": "09261234567",
 			"TypeOfTransaction": "Change of Ownership",
-			"CustomerStatus": "Processing",
+			"CustomerStatus": "Serving",
 			"TransactionType": [
 				"License Renewal",
 				"Student Permit"
