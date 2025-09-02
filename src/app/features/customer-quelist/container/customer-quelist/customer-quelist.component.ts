@@ -12,6 +12,16 @@ interface Company {
   TransactionType: string[];
 }
 
+interface Customer {
+  ID: string;
+  CompanyID: string;
+  FullName: string;
+  ContactNumber: string;
+  TypeOfTransaction: string;
+  CustomerStatus: 'Waiting' | 'Serving' | 'Completed';
+  TransactionType: string[];
+}
+
 @Component({
   selector: 'app-customer-quelist',
   templateUrl: './customer-quelist.component.html',
@@ -21,7 +31,17 @@ interface Company {
 export class CustomerQuelistComponent {
   companyName$ = signal<string | null>(null);
   companies: Company[] = [];
+  customers: Customer[] = [];
   searchPhoneNumber: string = '';
+
+  // Computed properties for filtered customers
+  get servingCustomers(): Customer[] {
+    return this.customers.filter(customer => customer.CustomerStatus === 'Serving');
+  }
+
+  get waitingCustomers(): Customer[] {
+    return this.customers.filter(customer => customer.CustomerStatus === 'Waiting');
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +53,9 @@ export class CustomerQuelistComponent {
     this.companyName$.set(this.route.snapshot.paramMap.get('companyName'));
     this.http.get<Company[]>('/app-company.json').subscribe(data => {
       this.companies = data;
+    });
+    this.http.get<Customer[]>('/app-customer-que.json').subscribe(data => {
+      this.customers = data;
     });
   }
 
@@ -48,11 +71,11 @@ export class CustomerQuelistComponent {
     alert('Complete Service functionality will be implemented here');
   }
 
-  startTransaction(customerId: number): void {
+  startTransaction(customerId: string): void {
     alert(`Edit Customer ${customerId} functionality will be implemented here`);
   }
 
-  removeFromQue(customerId: number): void {
+  removeFromQue(customerId: string): void {
     alert(`Remove Customer ${customerId} from queue functionality will be implemented here`);
   }
 
