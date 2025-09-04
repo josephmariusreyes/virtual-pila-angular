@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -28,11 +28,15 @@ interface Customer {
   styleUrl: './customer-quelist.component.scss',
   standalone: false
 })
-export class CustomerQuelistComponent {
+export class CustomerQuelistComponent implements OnInit {
   companyName$ = signal<string | null>(null);
   companies: Company[] = [];
   customers: Customer[] = [];
   searchPhoneNumber: string = '';
+  
+  // Collapsible state
+  servingCollapsed = signal<boolean>(false);
+  waitingCollapsed = signal<boolean>(false);
 
   // Computed properties for filtered customers
   get servingCustomers(): Customer[] {
@@ -84,5 +88,17 @@ export class CustomerQuelistComponent {
       alert(`Searching for customer with phone number: ${this.searchPhoneNumber}`);
       // TODO: Implement actual phone number search functionality
     }
+  }
+
+  toggleServingSection(): void {
+    console.log('toggleServingSection called, current state:', this.servingCollapsed());
+    this.servingCollapsed.set(!this.servingCollapsed());
+    console.log('new state:', this.servingCollapsed());
+  }
+
+  toggleWaitingSection(): void {
+    console.log('toggleWaitingSection called, current state:', this.waitingCollapsed());
+    this.waitingCollapsed.set(!this.waitingCollapsed());
+    console.log('new state:', this.waitingCollapsed());
   }
 }

@@ -52,11 +52,19 @@
     <div class="row g-4">
       <!-- Serving Section -->
       <div class="col-lg-6 col-md-12">
-        <div class="card h-100 border-primary border-3">
+        <div class="card  border-primary border-3">
           <div class="card-header bg-primary text-white text-center py-3">
-            <h3 class="card-title mb-0 fw-bold">Serving</h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="card-title mb-0 fw-bold flex-grow-1">Serving</h3>
+              <button 
+                class="btn btn-outline-light btn-sm" 
+                (click)="toggleServingSection()"
+                type="button">
+                <i class="pi" [ngClass]="servingCollapsed() ? 'pi-chevron-down' : 'pi-chevron-up'"></i>
+              </button>
+            </div>
           </div>
-          <div class="card-body p-4">
+          <div class="card-body p-4" [ngClass]="{'d-none': servingCollapsed()}">
             <!-- Currently Serving Customers -->
             @if (servingCustomers.length > 0) {
               @for (customer of servingCustomers; track customer.ID; let index = $index) {
@@ -72,8 +80,7 @@
                   <div class="d-flex justify-content-end flex-wrap gap-2 mt-4">
                     <button class="btn btn-success btn-sm" (click)="completeService()">
                       <i class="pi pi-check me-1"></i>
-                      <span class="d-none d-sm-inline">Completed</span>
-                      <span class="d-sm-none">Done</span>
+                      <span>Done</span>
                     </button>
                   </div>
                 </div>
@@ -89,11 +96,19 @@
 
       <!-- Waiting Section -->
       <div class="col-lg-6 col-md-12">
-        <div class="card h-100">
+        <div class="card">
           <div class="card-header bg-light text-center py-3">
-            <h3 class="card-title mb-0 fw-bold text-dark">Waiting</h3>
+            <div class="d-flex justify-content-between align-items-center">
+              <h3 class="card-title mb-0 fw-bold text-dark flex-grow-1">Waiting</h3>
+              <button 
+                class="btn btn-outline-secondary btn-sm" 
+                (click)="toggleWaitingSection()"
+                type="button">
+                <i class="pi" [ngClass]="waitingCollapsed() ? 'pi-chevron-down' : 'pi-chevron-up'"></i>
+              </button>
+            </div>
           </div>
-          <div class="card-body p-4">
+          <div class="card-body p-4" [ngClass]="{'d-none': waitingCollapsed()}">
             <!-- Waiting Customers List -->
             @if (waitingCustomers.length > 0) {
               @for (customer of waitingCustomers; track customer.ID; let index = $index) {
