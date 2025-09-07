@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   { 
-    path: '', redirectTo: 'user/login', pathMatch: 'full' 
+    path: '', redirectTo: 'customer-que', pathMatch: 'full' 
   },
   {
     path: 'user',

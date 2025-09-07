@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // PrimeNG modules used by the login component
 import { InputTextModule } from 'primeng/inputtext';
@@ -27,6 +28,7 @@ import { UsersRoutingModule } from './users.routing';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     InputTextModule,
     PasswordModule,
     ButtonModule
