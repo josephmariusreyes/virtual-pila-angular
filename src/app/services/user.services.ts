@@ -7,14 +7,15 @@ import { AdminUser } from "../models/admin-user.model";
 @Injectable({ providedIn: 'root' })
 
 export class UserService {
-  private currentUserSubject = new BehaviorSubject<AdminUser | null>(null);
-  public currentUser$ = this.currentUserSubject.asObservable();
+    
+  private loggedInUserSubject = new BehaviorSubject<AdminUser | null>(null);
+  public loggedInUser$ = this.loggedInUserSubject.asObservable();
 
   constructor(private http: HttpClient) {
   }
 
   getCurrentUser(): AdminUser | null {
-    return this.currentUserSubject.value;
+    return this.loggedInUserSubject.value;
   }  
   
   login(username: string, password: string): Observable<boolean> {
@@ -29,7 +30,7 @@ export class UserService {
             // Create user object without password for security
             const { password, ...userWithoutPassword } = matchedUser;
             
-            this.currentUserSubject.next(userWithoutPassword as AdminUser);
+            this.loggedInUserSubject.next(userWithoutPassword as AdminUser);
             observer.next(true);
             observer.complete();
           } else {
@@ -47,6 +48,6 @@ export class UserService {
   }
 
   logout(): void {
-    this.currentUserSubject.next(null);
+    this.loggedInUserSubject.next(null);
   }
 }
