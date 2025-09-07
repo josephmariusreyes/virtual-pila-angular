@@ -3,17 +3,19 @@
         <h4 class="card-title text-center mb-3">Sign in to your account</h4>
 
         <form [formGroup]="loginForm" (ngSubmit)="login()" class="needs-validation" novalidate>
+            @if(loginError) {
+            <div class="alert alert-danger small mb-3">
+                {{ loginError }}
+            </div>
+            }
             <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input id="email" formControlName="email" pInputText type="email" class="form-control"
-                    placeholder="you@example.com" />
+                <label for="email" class="form-label">Username</label>
+                <input id="email" formControlName="email" pInputText type="text" class="form-control"
+                    placeholder="Enter your username" [disabled]="isLoading" />
                 @if(loginFormControls['email'].touched && loginFormControls['email'].invalid) {
                 <div class="text-danger small mt-1">
                     @if(loginFormControls['email'].errors?.['required']) {
-                    <div>Email is required.</div>
-                    }
-                    @if(loginFormControls['email'].errors?.['email']) {
-                    <div>Enter a valid email.</div>
+                    <div>Username is required.</div>
                     }
                 </div>
                 }
@@ -21,7 +23,7 @@
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
                 <input id="password" formControlName="password" pPassword type="password" class="form-control"
-                    placeholder="Enter password" />
+                    placeholder="Enter password" [disabled]="isLoading" />
                 @if(loginFormControls['password'].touched && loginFormControls['password'].invalid) {
                 <div class="text-danger small mt-1">
                     <div>Password is required.</div>
@@ -30,12 +32,13 @@
             </div>
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember" formControlName="remember" />
+                    <input class="form-check-input" type="checkbox" id="remember" formControlName="remember" [disabled]="isLoading" />
                     <label class="form-check-label" for="remember">Remember me</label>
                 </div>
                 <a class="small" href="#">Forgot?</a>
             </div>
-            <button type="submit" pButton label="Sign in" class="btn btn-primary w-100"></button>
+            <button type="submit" pButton [label]="isLoading ? 'Signing in...' : 'Sign in'" 
+                    class="btn btn-primary w-100" [disabled]="isLoading || loginForm.invalid"></button>
         </form>
         <div class="text-center mt-3 small text-muted">Don't have an account? <a href="#">Register</a></div>
     </div>
