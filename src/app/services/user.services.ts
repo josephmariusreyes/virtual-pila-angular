@@ -14,6 +14,8 @@ export class UserService {
   }
 
   getCurrentUser(): AdminUser | null {
+    //@TODO: Will replace this to call a method to call user info
+    //a token must be supplied to determine if user is logged in or not
     const userJson = localStorage.getItem(this.USER_STORAGE_KEY);
     if (userJson) {
       try {
@@ -29,6 +31,8 @@ export class UserService {
   
   login(username: string, password: string): Observable<boolean> {
     return new Observable<boolean>(observer => {
+
+      //@TODO: Will replace this with actual API call
       this.http.get<AdminUser[]>('/app-admin-users.json').subscribe({
         next: (users) => {
           const matchedUser = users.find(user => 
