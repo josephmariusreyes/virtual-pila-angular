@@ -8,14 +8,23 @@ import { AdminUser } from "../models/admin-user.model";
 
 export class UserService {
     
-  private loggedInUserSubject = new BehaviorSubject<AdminUser | null>(null);
-  public loggedInUser$ = this.loggedInUserSubject.asObservable();
+  private readonly USER_STORAGE_KEY = 'currentUser';
 
   constructor(private http: HttpClient) {
   }
 
   getCurrentUser(): AdminUser | null {
-    return this.loggedInUserSubject.value;
+    const userJson = localStorage.getItem(this.USER_STORAGE_KEY);
+    if (userJson) {
+      try {
+        return JSON.parse(userJson) as AdminUser;
+      } catch (error) {
+        console.error('Error parsing user data from localStorage:', error);
+        localStorage.removeItem(this.USER_STORAGE_KEY);
+        return null;
+      }
+    }
+    return null;
   }  
   
   login(username: string, password: string): Observable<boolean> {
@@ -30,12 +39,11 @@ export class UserService {
             // Create user object without password for security
             const { password, ...userWithoutPassword } = matchedUser;
             
-            this.loggedInUserSubject.next(userWithoutPassword as AdminUser);
-            observer.next(true);
-            observer.complete();
+            // Store user in localStorage
+            localStorage.setItem(this.USER_STORAGE_KEY, JSON.stringify(userWithoutPassword));
+            return true;
           } else {
-            observer.next(false);
-            observer.complete();
+            return false;
           }
         },
         error: (error) => {
@@ -48,6 +56,6 @@ export class UserService {
   }
 
   logout(): void {
-    this.loggedInUserSubject.next(null);
+    localStorage.removeItem(this.USER_STORAGE_KEY);
   }
 }

@@ -17,19 +17,14 @@ export class AddCustomerToQueGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    
-    // Check if user is logged in using the UserService observable
-    return this.userService.loggedInUser$.pipe(
-      map(user => {
-        if (user) {
-          // User is logged in
-          return true;
-        } else {
-          // No user logged in, redirect to customer-que
-          this.router.navigate(['/customer-que']);
-          return false;
-        }
-      })
-    );
+    // Check if user is logged in using the UserService
+    const currentUser = this.userService.getCurrentUser();
+    if (currentUser) {
+      return true;
+    } else {
+      // Optionally redirect to login page
+      this.router.navigate(['/login']);
+      return false;
+    }
   }
 }

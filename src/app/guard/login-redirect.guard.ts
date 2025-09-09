@@ -17,19 +17,15 @@ export class LoginRedirectGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    
-    // Check if user is already logged in
-    return this.userService.loggedInUser$.pipe(
-      map(user => {
-        if (user) {
-          // User is already logged in, redirect to customer-que
-          this.router.navigate(['/customer-que']);
-          return false;
-        } else {
-          // No user logged in, allow access to login page
-          return true;
-        }
-      })
-    );
+    debugger;
+    const currentUser = this.userService.getCurrentUser();
+    if (currentUser) {
+      this.router.navigate(['/customer-que']);
+      return false;
+    } else {
+      // No user logged in, allow access to login page
+      return true;
+    }
+
   }
 }
