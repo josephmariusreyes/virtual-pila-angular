@@ -78,9 +78,9 @@
                     <span class="badge bg-dark rounded-pill fs-6 px-3 py-2 ms-2">{{ index + 1 | number:'2.0' }}</span>
                   </div>
                   <div class="d-flex justify-content-end flex-wrap gap-2 mt-4">
-                    <button class="btn btn-success btn-sm" (click)="completeService()">
-                      <i class="pi pi-check me-1"></i>
-                      <span>Done</span>
+                    <button class="btn btn-success btn-sm">
+                      <!-- <i class="pi pi-check me-1"></i> -->
+                      <span>Complete</span>
                     </button>
                   </div>
                 </div>
@@ -123,7 +123,6 @@
                   </div>
                   <div class="d-flex justify-content-end flex-wrap gap-2">
                     <button class="btn btn-warning btn-sm" (click)="startTransaction(customer.ID)">
-                      <i class="pi pi-pencil me-1"></i>
                       <span class="d-none d-sm-inline">Start Transaction</span>
                       <span class="d-sm-none">Start</span>
                     </button>
