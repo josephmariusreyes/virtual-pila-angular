@@ -22,8 +22,8 @@ export class AddCustomerToQueGuard implements CanActivate {
     if (currentUser) {
       return true;
     } else {
-      // Optionally redirect to login page
-      this.router.navigate(['/login']);
+      // Redirect to customer queue when access is denied
+      this.router.navigate(['/customer-que']);
       return false;
     }
   }
