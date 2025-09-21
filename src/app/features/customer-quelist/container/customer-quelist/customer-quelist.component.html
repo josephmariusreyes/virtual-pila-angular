@@ -171,3 +171,10 @@
     </div>
   </div>
 </ng-template>
+
+<!-- Customer Search Dialog -->
+<app-customer-search-dialog
+  [(visible)]="showSearchDialog"
+  [customer]="searchResult"
+  (close)="onSearchDialogClose()">
+</app-customer-search-dialog>

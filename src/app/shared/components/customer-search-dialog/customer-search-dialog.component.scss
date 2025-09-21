@@ -1,0 +1,43 @@
+.customer-details {
+  .form-label {
+    color: #495057;
+    margin-bottom: 0.25rem;
+  }
+  
+  p {
+    color: #212529;
+    font-size: 1rem;
+  }
+  
+  .badge {
+    font-weight: 500;
+  }
+}
+
+:host ::ng-deep {
+  .p-dialog-header {
+    background-color: #007bff;
+    color: white;
+    
+    .p-dialog-title {
+      font-weight: 600;
+    }
+    
+    .p-dialog-header-icon {
+      color: white;
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  
+  .p-dialog-content {
+    padding: 1.5rem;
+  }
+  
+  .p-dialog-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid #dee2e6;
+  }
+}

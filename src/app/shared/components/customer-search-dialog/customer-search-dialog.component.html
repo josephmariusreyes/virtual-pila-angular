@@ -1,0 +1,66 @@
+<p-dialog 
+  header="Customer Search Result" 
+  [(visible)]="visible" 
+  [modal]="true" 
+  [closable]="true"
+  [style]="{width: '450px'}"
+  (onHide)="onHide()">
+  
+  <ng-template pTemplate="content">
+    @if (customer) {
+      <div class="customer-details">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Customer Name:</label>
+          <p class="mb-1">{{ customer.FullName }}</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Contact Number:</label>
+          <p class="mb-1">{{ customer.ContactNumber }}</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Service Type:</label>
+          <p class="mb-1">{{ customer.TypeOfTransaction }}</p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Queue Position:</label>
+          <p class="mb-1">
+            <span class="badge bg-primary fs-6 px-3 py-2">{{ customer.QueuePosition }}</span>
+          </p>
+        </div>
+        
+        <div class="mb-3">
+          <label class="form-label fw-bold">Status:</label>
+          <p class="mb-1">
+            <span class="badge fs-6 px-3 py-2"
+                  [ngClass]="{
+                    'bg-success': customer.CustomerStatus === 'Serving',
+                    'bg-warning': customer.CustomerStatus === 'Waiting',
+                    'bg-secondary': customer.CustomerStatus === 'Completed'
+                  }">
+              {{ customer.CustomerStatus }}
+            </span>
+          </p>
+        </div>
+      </div>
+    } @else {
+      <div class="text-center py-3">
+        <i class="pi pi-search" style="font-size: 2rem;" class="text-muted mb-3"></i>
+        <p class="text-muted">No customer found with the provided phone number.</p>
+      </div>
+    }
+  </ng-template>
+  
+  <ng-template pTemplate="footer">
+    <div class="d-flex justify-content-end">
+      <button 
+        type="button" 
+        class="btn btn-secondary" 
+        (click)="onHide()">
+        Close
+      </button>
+    </div>
+  </ng-template>
+</p-dialog>

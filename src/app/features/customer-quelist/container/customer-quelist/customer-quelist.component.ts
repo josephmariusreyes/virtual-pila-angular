@@ -22,6 +22,15 @@ interface Customer {
   TransactionType: string[];
 }
 
+interface CustomerSearchResult {
+  ID: string;
+  FullName: string;
+  ContactNumber: string;
+  TypeOfTransaction: string;
+  QueuePosition: number;
+  CustomerStatus: 'Waiting' | 'Serving' | 'Completed';
+}
+
 @Component({
   selector: 'app-customer-quelist',
   templateUrl: './customer-quelist.component.html',
@@ -33,6 +42,10 @@ export class CustomerQuelistComponent implements OnInit {
   companies: Company[] = [];
   customers: Customer[] = [];
   searchPhoneNumber: string = '';
+  
+  // Dialog properties
+  showSearchDialog: boolean = false;
+  searchResult: CustomerSearchResult | null = null;
   
   // Collapsible state
   servingCollapsed = signal<boolean>(false);
@@ -85,9 +98,45 @@ export class CustomerQuelistComponent implements OnInit {
 
   searchByPhone(): void {
     if (this.searchPhoneNumber && this.searchPhoneNumber.length >= 10) {
-      alert(`Searching for customer with phone number: ${this.searchPhoneNumber}`);
-      // TODO: Implement actual phone number search functionality
+      // Find customer by phone number
+      const foundCustomer = this.customers.find(customer => 
+        customer.ContactNumber === this.searchPhoneNumber
+      );
+      
+      if (foundCustomer) {
+        // Calculate queue position
+        let queuePosition = 1;
+        
+        if (foundCustomer.CustomerStatus === 'Waiting') {
+          // Find position in waiting queue
+          const waitingCustomers = this.customers.filter(c => c.CustomerStatus === 'Waiting');
+          queuePosition = waitingCustomers.findIndex(c => c.ID === foundCustomer.ID) + 1;
+        } else if (foundCustomer.CustomerStatus === 'Serving') {
+          // Find position in serving queue
+          const servingCustomers = this.customers.filter(c => c.CustomerStatus === 'Serving');
+          queuePosition = servingCustomers.findIndex(c => c.ID === foundCustomer.ID) + 1;
+        }
+        
+        this.searchResult = {
+          ID: foundCustomer.ID,
+          FullName: foundCustomer.FullName,
+          ContactNumber: foundCustomer.ContactNumber,
+          TypeOfTransaction: foundCustomer.TypeOfTransaction,
+          QueuePosition: queuePosition,
+          CustomerStatus: foundCustomer.CustomerStatus
+        };
+      } else {
+        this.searchResult = null;
+      }
+      
+      this.showSearchDialog = true;
     }
+  }
+
+  onSearchDialogClose(): void {
+    this.showSearchDialog = false;
+    this.searchResult = null;
+    this.searchPhoneNumber = '';
   }
 
   toggleServingSection(): void {

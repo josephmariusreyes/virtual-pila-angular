@@ -5,6 +5,7 @@ import { RouterModule } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { CustomerQuelistRoutingModule } from "./customer-quelist.routing";
 import { AddCustomerToQueComponent } from "./container/add-customer-to-que/add-customer-to-que.component";
+import { SharedModule } from "../../shared/shared.module";
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { AddCustomerToQueComponent } from "./container/add-customer-to-que/add-c
     CustomerQuelistRoutingModule,
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class CustomerQuelistModule {}
